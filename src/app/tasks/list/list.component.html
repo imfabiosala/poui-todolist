@@ -7,13 +7,15 @@
 				<th>Tarefa</th>
 				<th></th>
 			</tr>
-			<tr>
-				<td>1</td>
-				<td>Limpar Casa</td>
-				<td>
-                    <a href="#" class="btn btn btn-success btn-xs" role="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
-                    <a href="#" class="btn btn btn-danger btn-xs" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			<tr *ngFor="let task of tasks">
+				<th>{{ task.id }}</th>
+				<td>{{ task.name }}</td>
+				<td *ngIf="!task.done">
+                    <a href="#" class="btn btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Concluir</a>
                 </td>
+				<td *ngIf="task.done">
+					<a href="#" class="btn btn btn-success btn-xs disabled" role="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Concluída</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>
