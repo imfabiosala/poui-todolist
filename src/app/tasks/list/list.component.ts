@@ -29,4 +29,10 @@ export class ListComponent implements OnInit {
     }
   }
 
+  changeStatus(task: Task): void {
+    if (confirm('Deseja concluir a tarefa ' + task.name + '?')) {
+      this.taskService.changeStatus(task.id);
+      this.tasks = this.taskService.listAll();
+    }
+  }
 }
