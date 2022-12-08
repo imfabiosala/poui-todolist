@@ -46,4 +46,9 @@ export class TaskService {
     });
     localStorage[this.key] = JSON.stringify(tasks);
   }
+
+  findById(id: number): Task {
+    let tasks: Task[] = this.listAll();
+    return tasks.find(task => task.id === id);
+  }
 }
