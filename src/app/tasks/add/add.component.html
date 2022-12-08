@@ -1,14 +1,18 @@
 <!-- begin app. task form -->
-<form>
+<form #formTask="ngForm">
     <div class="row text-center">
         <div class="col-xs-9">
             <div class="form-group">
-                <input type="text" class="form-control" id="taskName" name="taskName" placeholder="Descrição da tarefa" minlength="5" required>
+                <input type="text" class="form-control" id="taskName" name="taskName" [(ngModel)]="task.name" #name="ngModel" placeholder="Descrição da tarefa" minlength="5" required>
+                <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div [hidden]="!name.errors.required">Digite a tarefa.</div>
+                    <div [hidden]="!name.errors.minlength">O nome da tarefa deve ter pelo menos 5 caracteres.</div>
+                </div>
             </div>
         </div>
         <div class="col-xs-3">
-            <a class="btn btn-primary btn-space"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span></a>
-            <a class="btn btn-default btn-space"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>
+            <button class="btn btn-primary btn-space" type="submit" (click)="add()" [disabled]="!formTask.form.valid"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span></button>
+            <a [routerLink]="['/tasks']" class="btn btn-default btn-space"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>
         </div>
     </div>
 </form>
