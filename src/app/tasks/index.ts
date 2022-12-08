@@ -1,4 +1,5 @@
 export * from './tasks.module'
 export * from './shared'
 export * from './list'
+export * from './list'
 export * from './tasks.route.module'
