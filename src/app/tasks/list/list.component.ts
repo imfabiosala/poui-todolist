@@ -21,4 +21,12 @@ export class ListComponent implements OnInit {
     return this.taskService.listAll();
   }
 
+  remove($event: any, task: Task): void {
+    $event.preventDefault();
+    if (confirm('Deseja remover a tarefa ' + task.name + '?')) {
+      this.taskService.remove(task.id);
+      this.tasks = this.taskService.listAll();
+    }
+  }
+
 }
