@@ -2,6 +2,7 @@ import { Routes } from "@angular/router";
 
 import { ListComponent } from "./list";
 import { AddComponent } from "./add";
+import { EditComponent } from "./edit";
 
 export const TaskRoutes: Routes = [
     {
@@ -15,5 +16,9 @@ export const TaskRoutes: Routes = [
     {
         path: 'tasks/add',
         component: AddComponent
+    },
+    {
+        path: 'tasks/edit/:id',
+        component: EditComponent
     }
 ];
