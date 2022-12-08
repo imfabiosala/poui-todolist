@@ -5,16 +5,16 @@
 			<tr>
 				<th>#</th>
 				<th>Tarefa</th>
-				<th></th>
+				<th><a [routerLink]="['/tasks/add']" class="btn btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nova Tarefa</a></th>
 			</tr>
 			<tr *ngFor="let task of tasks">
 				<th>{{ task.id }}</th>
 				<td>{{ task.name }}</td>
 				<td *ngIf="!task.done">
-                    <a href="#" class="btn btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Concluir</a>
+                    <a href="#" class="btn btn btn-success btn-xs" role="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Concluir</a>
                 </td>
 				<td *ngIf="task.done">
-					<a href="#" class="btn btn btn-success btn-xs disabled" role="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Concluída</a>
+					<a href="#" class="btn btn btn-warning btn-xs disabled" role="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Concluída</a>
 				</td>
 			</tr>
 		</tbody>
