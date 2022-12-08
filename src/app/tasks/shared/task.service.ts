@@ -51,4 +51,10 @@ export class TaskService {
     let tasks: Task[] = this.listAll();
     return tasks.find(task => task.id === id);
   }
+
+  remove(id: number): void {
+    let tasks: Task[] = this.listAll();
+    tasks = tasks.filter(task => task.id !== id);
+    localStorage[this.key] = JSON.stringify(tasks);
+  }
 }
